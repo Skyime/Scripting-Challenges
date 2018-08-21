@@ -24,9 +24,6 @@ def calculate(calc, num):
             total += num[1]
         elif '-' in calc[0]:
             total -= num[1]
-        else:
-            print('no + or - in calc')
-            exit(0)
     elif len(calc) == 2:
         if '+' in calc[0] and '+' in calc[1]:
             total += (num[1] + num[2])
@@ -36,9 +33,6 @@ def calculate(calc, num):
             total += (num[1] - num[2])
         elif '-' in calc[0] and '+' in calc[1]:
             total += (num[2] - num[1])
-        else:
-            print('an item in calc is not + or -')
-            exit(0)
     return total
 
 
@@ -84,7 +78,7 @@ def dice_interface():
     
     #  checking if input is good and assigning to relevant variables if so
     if re.match(r'[^ d\d+-]', dice):
-        bad_roll('input has bad characters')
+        bad_roll('Input has bad characters...')
     elif re.match(r'\d', dice):
         if 'd' in dice:
             [dice_num.append(each) for each in re.findall(r'(\d+)d', dice)]
@@ -97,17 +91,17 @@ def dice_interface():
             elif '-' in dice:
                 [calcs.append(each) for each in re.findall(r'-', dice)]
         else:
-            bad_roll('you need the d...')
+            bad_roll('You need the d...')
     else:
-        bad_roll('input has no numbers')
+        bad_roll('Input has no numbers...')
         
     #  checking if too many dice/operations specified for script, or a variable has somehow got the wrong amount
     if len(dice_num) < 1 or len(dice_num) > 3:
-        bad_roll('dice_num bad size')
+        bad_roll('Too many or too few dice to roll...')
     elif len(dice_size) != len(dice_num):
-        bad_roll('size of dice_size does not match size of dice_num')
-    elif len(calcs) < 0 or len(calcs) > 2:
-        bad_roll('calc bad size')
+        bad_roll('Number of types of dice to roll does not match number of multiples of dice to roll...')
+    elif len(calcs) != (len(dice_num) - 1):
+        bad_roll('Number of calculations do not match number of dice')
 
     #  rolling the dice
     print("Rolling...\n")
