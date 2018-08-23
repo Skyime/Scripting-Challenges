@@ -23,7 +23,7 @@ alpha_df = pd.DataFrame(data=alpha_array, index=list(string.ascii_uppercase), co
 #  function to restart or quit based on user input
 def more():
     print("Would you like to do something else, yes or no?")
-        choice_m = input('>>  ')
+        choice_m = input('>>  ').lower()
 
         if 'yes' in choice_m:
             cipher_interface()
