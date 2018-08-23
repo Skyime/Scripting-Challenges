@@ -12,11 +12,11 @@ numbers = [
     ' _ |_| _|'
     ]
 
-#  read the challenge text file, adding each line into a list with no \n where new lines in the file would be, then close the file
+#  read challenge text file, add each line into a list with no \n, then close the file
 chall_text = [w.replace('\n', '') for w in open('digital number challenges.txt', 'r').readlines()]
 open('digital number challenges.txt', 'r').close()
 
-#  take the characters for a single digit over its 3 lines, and add them in their own order as a string, similar to the conversion list
+#  take characters for single digit over its 3 lines, add them in their own order as a string similar to conversion list
 lines_ordered = ''
 for i_0 in range(0, 10, 3):
     for i_1 in range(0, 25, 3):
