@@ -45,7 +45,7 @@ def bad_roll(reason):
 #  function to check if user would like to roll again or not once finished
 def roll_again():
     print("Would you like to roll again, yes or no?")
-    choice = input(">> ")
+    choice = input(">> ").lower()
     if 'yes' in choice:
         dice_interface()
     elif 'no' in choice:
